@@ -14,10 +14,18 @@ namespace ChessGame.Models
 
         private void InitializeBoard()
         {
-            // Place pieces on the board
-            // For brevity, only Kings are placed. Add other pieces similarly.
+            // Kings
             Squares[0, 4] = new King(Player.White);
             Squares[7, 4] = new King(Player.Black);
+
+            // Pawns
+            for (int col = 0; col < 8; col++)
+            {
+                Squares[1, col] = new Pawn(Player.White);
+                Squares[6, col] = new Pawn(Player.Black);
+            }
+
+            // Add more pieces later: Rooks, Knights, Bishops, Queen
         }
 
         public void Display()
@@ -36,4 +44,6 @@ namespace ChessGame.Models
             Console.WriteLine("  a b c d e f g h");
         }
     }
+
+    
 }
